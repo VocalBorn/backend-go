@@ -1,0 +1,52 @@
+info:
+  contact: {}
+  title: Vocalborn API
+  version: "1.0"
+paths:
+  /user/login:
+    get:
+      consumes:
+      - application/json
+      description: User Login
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: bad request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      summary: User Login
+      tags:
+      - User
+  /user/register:
+    get:
+      consumes:
+      - application/json
+      description: User Register
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: bad request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      summary: User Register
+      tags:
+      - User
+swagger: "2.0"
