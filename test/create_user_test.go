@@ -6,10 +6,10 @@ import (
 	"vocalborn/backend-go/utils"
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
+	_ "github.com/joho/godotenv/autoload"
 )
 
 func TestCreateAccount(t *testing.T) {
-	utils.LoadEnv()
 	db := utils.ConnectDB()
 
 	// 測試前清理數據
@@ -36,7 +36,6 @@ func TestCreateAccount(t *testing.T) {
 }
 
 func TestCreateUser(t *testing.T) {
-	utils.LoadEnv()
 	db := utils.ConnectDB()
 
 	// 測試前清理數據
