@@ -5,14 +5,32 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// Login handles user login
+// User Login Handler godoc
+//	@Summary		User Login
+//	@Description	User Login
+//	@Tags			User
+//	@Accept			json
+//	@Produce		json
+//	@Success		200	{string}	string	"ok"
+//	@Failure		400	{string}	string	"bad request"
+//	@Failure		500	{string}	string	"internal server error"
+//	@Router			/user/login [get]
 func Login(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"message": "Login endpoint",
 	})
 }
 
-// Register handles user registration
+// Register Handles GODOC
+//	@Summary		User Register
+//	@Description	User Register
+//	@Tags			User
+//	@Accept			json
+//	@Produce		json
+//	@Success		200	{string}	string	"ok"
+//	@Failure		400	{string}	string	"bad request"
+//	@Failure		500	{string}	string	"internal server error"
+//	@Router			/user/register [get]
 func Register(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"message": "Register endpoint",

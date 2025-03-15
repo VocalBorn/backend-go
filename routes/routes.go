@@ -3,7 +3,7 @@ package routes
 import (
 	"vocalborn/backend-go/handlers"
 	"github.com/gin-gonic/gin"
-)
+	)
 
 func SetupRoutes(router *gin.Engine)  {
 	user := router.Group("/user")
@@ -12,5 +12,11 @@ func SetupRoutes(router *gin.Engine)  {
 		user.GET("/register", handlers.Register)
 		user.GET("/logout", handlers.Logout)
 	}
+	ping := router.Group("/ping")
+	{
+		ping.GET("", handlers.Ping)
+	}
 }
+
+
 
