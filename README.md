@@ -15,3 +15,4 @@ swag init -g cmd/main.go
 ## 參考資料
 [資料結構參考](https://medium.com/@benbjohnson/structuring-applications-in-go-3b04be4ff091)
 [Golang 教學全集](https://vocus.cc/salon/658d1061fd89780001dec7e8/room/golanglab)
+[資料庫 Transaction](https://oldmo860617.medium.com/database-transaction-acid-156a3b75845e)

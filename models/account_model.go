@@ -19,3 +19,8 @@ type Account struct {
 func (Account) TableName() string {
 	return "accounts"
 }
+
+type AccountRegisterRequest struct {
+	Email    string `json:"email" binding:"required,email"`
+	Password string `json:"password" binding:"required,min=6"`
+}
