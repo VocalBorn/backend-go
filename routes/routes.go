@@ -11,9 +11,9 @@ func SetupRoutes(router *gin.Engine)  {
 
 	user := router.Group("/user")
 	{
-		user.GET("/login", userCtr.Login)
-		user.GET("/register", userCtr.Register)
-		user.GET("/logout", userCtr.Logout)
+		user.POST("/login", userCtr.Login)
+		user.POST("/register", userCtr.Register)
+		user.POST("/logout", userCtr.Logout)
 	}
 	ping := router.Group("/ping")
 	{
