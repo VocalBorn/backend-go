@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"vocalborn/backend-go/models"
+	"vocalborn/backend-go/utils"
 
 	"github.com/google/uuid"
 	"golang.org/x/crypto/bcrypt"
@@ -16,7 +17,8 @@ type UserService struct {
 }
 
 // 用戶服務的構造函數
-func NewUserService(db *gorm.DB) *UserService {
+func NewUserService() *UserService {
+	db := utils.ConnectDB()
 	return &UserService{db: db}
 }
 
