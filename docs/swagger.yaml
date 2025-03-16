@@ -1,3 +1,15 @@
+definitions:
+  models.AccountRegisterRequest:
+    properties:
+      email:
+        type: string
+      password:
+        minLength: 6
+        type: string
+    required:
+    - email
+    - password
+    type: object
 info:
   contact: {}
   title: Vocalborn API
@@ -27,10 +39,17 @@ paths:
       tags:
       - User
   /user/register:
-    get:
+    post:
       consumes:
       - application/json
       description: User Register
+      parameters:
+      - description: Register Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/models.AccountRegisterRequest'
       produces:
       - application/json
       responses:

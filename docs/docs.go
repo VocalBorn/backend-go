@@ -51,7 +51,7 @@ const docTemplate = `{
             }
         },
         "/user/register": {
-            "get": {
+            "post": {
                 "description": "User Register",
                 "consumes": [
                     "application/json"
@@ -63,6 +63,17 @@ const docTemplate = `{
                     "User"
                 ],
                 "summary": "User Register",
+                "parameters": [
+                    {
+                        "description": "Register Request",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.AccountRegisterRequest"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "ok",
@@ -82,6 +93,24 @@ const docTemplate = `{
                             "type": "string"
                         }
                     }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.AccountRegisterRequest": {
+            "type": "object",
+            "required": [
+                "email",
+                "password"
+            ],
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string",
+                    "minLength": 6
                 }
             }
         }

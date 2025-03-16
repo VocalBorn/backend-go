@@ -1,14 +1,15 @@
 package main
 
 import (
+	_ "vocalborn/backend-go/docs"
 	"vocalborn/backend-go/models"
 	"vocalborn/backend-go/routes"
 	"vocalborn/backend-go/utils"
+
 	"github.com/gin-gonic/gin"
-	ginSwagger "github.com/swaggo/gin-swagger"
-	swaggerFiles "github.com/swaggo/files"
-	_ "vocalborn/backend-go/docs"
 	_ "github.com/joho/godotenv/autoload"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 //	@title		Vocalborn API
