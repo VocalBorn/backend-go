@@ -1,4 +1,4 @@
-package handlers
+package controllers
 
 import (
 	"net/http"
@@ -7,6 +7,11 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+type UserController struct{}
+
+func NewUserController() *UserController {
+	return &UserController{}
+}
 
 // User Login Handler godoc
 //	@Summary		User Login
@@ -18,7 +23,7 @@ import (
 //	@Failure		400	{string}	string	"bad request"
 //	@Failure		500	{string}	string	"internal server error"
 //	@Router			/user/login [get]
-func Login(c *gin.Context) {
+func (ctr *UserController) Login(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"message": "Login endpoint",
 	})
@@ -31,7 +36,7 @@ func Login(c *gin.Context) {
 //	@Accept			json
 //	@Produce		json
 
-func Register(c *gin.Context) {
+func (ctr *UserController) Register(c *gin.Context) {
 	var registerRequest models.AccountRegisterRequest
 
 	if err := c.ShouldBindJSON(&registerRequest); err != nil {
@@ -47,7 +52,7 @@ func Register(c *gin.Context) {
 	
 }
 // Logout handles user logout
-func Logout(c *gin.Context) {
+func (ctr *UserController) Logout(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"message": "Logout endpoint",
 	})

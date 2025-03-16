@@ -1,20 +1,23 @@
 package routes
 
 import (
-	"vocalborn/backend-go/handlers"
+	"vocalborn/backend-go/controllers"
 	"github.com/gin-gonic/gin"
 	)
 
 func SetupRoutes(router *gin.Engine)  {
+	pingCtr := controllers.NewPingController()
+	userCtr := controllers.NewUserController()
+
 	user := router.Group("/user")
 	{
-		user.GET("/login", handlers.Login)
-		user.GET("/register", handlers.Register)
-		user.GET("/logout", handlers.Logout)
+		user.GET("/login", userCtr.Login)
+		user.GET("/register", userCtr.Register)
+		user.GET("/logout", userCtr.Logout)
 	}
 	ping := router.Group("/ping")
 	{
-		ping.GET("", handlers.Ping)
+		ping.GET("", pingCtr.Ping)
 	}
 }
 
