@@ -23,13 +23,13 @@ func NewUserService() *UserService {
 }
 
 // FindByEmail 根據電子郵件查詢用戶
-func (userSrv *UserService) FindByEmail(ctx context.Context, email string) (*models.User, error) {
-	var user models.User
-	result := userSrv.db.Where("email = ?", email).First(&user)
+func (userSrv *UserService) FindByEmail(ctx context.Context, email string) (*models.Account, error) {
+	var account models.Account
+	result := userSrv.db.Where("email = ?", email).First(&account)
 	if result.Error != nil {
 		return nil, result.Error
 	}
-	return &user, nil
+	return &account, nil
 }
 
 // Create 創建新用戶
@@ -39,7 +39,7 @@ func (userSrv *UserService) Create(ctx context.Context, user *models.Account) er
 
 func (userSrv *UserService) Register(ctx context.Context, req *models.AccountRegisterRequest) (*models.Account, error) {
 	// 檢查用戶是否已存在
-	var existingUser models.User
+	var existingUser models.Account
 	result := userSrv.db.Where("email = ?", req.Email).First(&existingUser)
 
 	// 只有當錯誤不是"記錄未找到"時才返回錯誤
